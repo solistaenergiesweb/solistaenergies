@@ -3,209 +3,810 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solista Energies provides premium solar panel installation and sustainable energy solutions for residential and commercial properties.">
-    <title>Solista Energies | Powering a Sustainable Future</title>
-    <!-- Google Fonts for Modern Aesthetic -->
+    <meta name="description" content="Solista Energies Private Limited is a premier solar EPC company accelerating India's transition to clean energy with utility scale, rooftop, and PPA solutions.">
+    <title>Solista Energies Private Limited | Powering a Sustainable Tomorrow</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Link to External Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- AOS Animate on Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Main Style Sheet -->
     <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* ---- Partners Grid ---- */
+        .partners-grid-new {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .partner-card {
+            background: #ffffff;
+            border: 1px solid #e8edf5;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.4rem 1rem;
+            min-height: 90px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+        }
+        .partner-card img {
+            max-width: 100%;
+            max-height: 56px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* Keep original colors — no filter */
+        }
+        body.dark-theme .partner-card {
+            background: #1a2234;
+            border-color: #2a3650;
+        }
+
+        /* ---- Process Flow Fix ---- */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            padding: 2rem 0 1rem;
+            gap: 0.5rem;
+        }
+        .process-flow::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-green), var(--brand-orange));
+            z-index: 1;
+        }
+        .process-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .step-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 3px solid var(--brand-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-blue);
+            margin-bottom: 0.7rem;
+            box-shadow: 0 4px 14px rgba(0,45,98,0.12);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .process-step:hover .step-icon-wrap {
+            transform: scale(1.12);
+            box-shadow: 0 8px 24px rgba(0,154,68,0.25);
+            border-color: var(--brand-green);
+        }
+        .step-num {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--brand-orange);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        /* ---- GSAP hero text initial state ---- */
+        .gsap-hero-title { opacity: 0; transform: translateY(40px); }
+        .gsap-hero-sub   { opacity: 0; transform: translateY(25px); }
+        .gsap-hero-cta   { opacity: 0; transform: scale(0.85); }
+    </style>
 </head>
 <body>
 
-    <!-- Ambient Animated Background -->
-    <div class="ambient-bg">
-        <div class="blob color-1"></div>
-        <div class="blob color-2"></div>
-    </div>
+        <!-- ==================== HEADER (NAVBAR) ==================== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
 
-    <!-- Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--primary-color)" xmlns="http://www.w3.org/2000/svg" class="floating">
-                    <path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.8l7 7h-2v7H7v-7H5l7-7z"/>
-                    <path d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
-                </svg>
-                Solista <span>Energies</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact" class="btn-cta">Get a Free Quote</a>
-            </nav>
-        </div>
-    </header>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero-wrapper">
+        <div class="hero-overlay"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content hidden">
-            <h1 class="floating">Empowering Your World with <span class="text-gradient">Limitless Energy</span></h1>
-            <p>Solista Energies delivers state-of-the-art solar solutions that drastically reduce your electricity bills while securing a sustainable future for the planet.</p>
-            <a href="#contact" class="btn-primary">Start Your Solar Journey</a>
+        <div class="hero-container">
+            <!-- Left: Title & CTA -->
+            <div class="hero-left">
+                <h1 class="gsap-hero-title">Powering a Sustainable Future <br><span>with Smart Solar Solutions</span></h1>
+                <p class="hero-taglines gsap-hero-sub">EPC | Rooftop | Ground Mount | Solar Parks | PPA | O&M | BESS | Open Access</p>
+                <p class="gsap-hero-sub" style="animation-delay:0.15s">Solista Energies delivers state-of-the-art solar infrastructures that drastically reduce operational electricity costs while securing a cleaner tomorrow for upcoming generations.</p>
+                <div class="hero-actions gsap-hero-cta">
+                    <button class="btn btn-accent" onclick="openModal('Get Free Consultation')">
+                        Get Free Consultation
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                    </button>
+                    <a href="#about" class="btn btn-outline-white">
+                        Download Profile
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7,10 12,15 17,10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: PPA Card -->
+            <div class="hero-right">
+                <div class="ppa-card">
+                    <h3>Own Less. Save More with <br><span>SOLAR PPA</span></h3>
+                    <p class="ppa-card-desc">Go solar with no or low upfront investment through customized PPA &amp; Open Access solutions.</p>
+                    <ul class="ppa-list">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>No / Low Upfront Investment*</span></li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Long-Term Power Cost Savings</span></li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Open Access &amp; Captive Solutions</span></li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Utility Scale Solar Parks</span></li>
+                    </ul>
+                    <button class="btn btn-accent" onclick="openModal('Explore PPA Solutions')">
+                        Explore PPA Solutions
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title hidden">Why Choose Solista?</h2>
+    <!-- ==================== FLOATING STATS BAR ==================== -->
+    <div class="stats-bar-wrapper">
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg></div>
+                <div class="stat-number count-animate" data-target="500">0</div>
+                <div class="stat-label">MW Executed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
+                <div class="stat-number count-animate" data-target="100">0</div>
+                <div class="stat-label">Completed Sites</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></div>
+                <div class="stat-number count-animate" data-target="15">0</div>
+                <div class="stat-label">States Served</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg></div>
+                <div class="stat-number count-animate" data-target="99">0</div>
+                <div class="stat-label">On-Time Delivery</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                <div class="stat-number count-animate" data-target="50">0</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="section section-light">
         <div class="about-grid">
-            <div class="about-text hidden delay-100">
-                <h3>Engineering a Brighter Tomorrow</h3>
-                <p>At <strong>Solista Energies</strong>, we believe that clean energy should be accessible, reliable, and affordable. With years of expertise in renewable technologies, our certified engineers handle everything from custom system design to flawless installation.</p>
-                <p>We utilize only Tier-1 solar panels and cutting-edge inverter technology to ensure you maximize your Return on Investment (ROI). Say goodbye to volatile grid energy prices and hello to energy independence.</p>
-                <ul style="list-style: none; padding-top: 1rem;" class="floating">
-                    <li style="margin-bottom: 0.5rem;">✅ Guaranteed 25-Year Panel Performance</li>
-                    <li style="margin-bottom: 0.5rem;">✅ Seamless Grid Integration & Permits</li>
-                    <li style="margin-bottom: 0.5rem;">✅ Zero Carbon Footprint Engineering</li>
+            <div class="about-left reveal">
+                <span class="section-subtitle" data-aos="fade-right">Who We Are</span>
+                <h2 class="section-title" data-aos="fade-up">About Solista Energies</h2>
+                <p class="about-paragraph"><strong>Solista Energies Pvt. Ltd.</strong> is a leading solar EPC company delivering end-to-end and turnkey renewable energy solutions for Commercial, Industrial, and Utility Scale Projects across India. We are committed to accelerating India's transition towards clean and sustainable energy by delivering high-quality solar infrastructure.</p>
+                <p style="color:var(--text-muted);margin-bottom:2.5rem;">Established with a vision to make solar power accessible, reliable, and cost-effective, we provide complete engineering, procurement, and construction (EPC) services, along with customized system design, flawless installation, commissioning, and operation &amp; maintenance (O&amp;M). Our experienced team ensures every project is executed with precision, safety, and adherence to industry standards.</p>
+                <div class="about-highlights-grid">
+                    <div class="highlight-box" data-aos="fade-up" data-aos-delay="0"><span class="highlight-icon">☀️</span><span class="highlight-text">End-to-End EPC Solutions</span></div>
+                    <div class="highlight-box" data-aos="fade-up" data-aos-delay="100"><span class="highlight-icon">⚡</span><span class="highlight-text">PPA &amp; Open Access Expertise</span></div>
+                    <div class="highlight-box" data-aos="fade-up" data-aos-delay="200"><span class="highlight-icon">🌐</span><span class="highlight-text">Utility-Scale Solar Projects</span></div>
+                    <div class="highlight-box" data-aos="fade-up" data-aos-delay="300"><span class="highlight-icon">🤝</span><span class="highlight-text">Trusted Partner for Investors</span></div>
+                </div>
+                <button class="btn btn-primary" onclick="openModal('Know More About Us')">
+                    Know More About Us
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                </button>
+            </div>
+            <div class="about-right reveal delay-200">
+                <div class="about-img-container">
+                    <img src="assets/images/about_solar.png" alt="Solista Energies Solar Installations">
+                </div>
+                <div class="about-experience-badge">
+                    <div class="badge-num">30</div>
+                    <div class="badge-lbl">Years Performance<br>Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section id="services" class="section section-dark">
+        <div class="section-title-wrap reveal">
+            <span class="section-subtitle" data-aos="fade-right">What We Do</span>
+            <h2 class="section-title" data-aos="fade-up">Our Premium Services</h2>
+            <p style="color:var(--text-muted);max-width:650px;margin:0 auto;font-size:1.1rem;">Transforming your space into a source of clean energy with our comprehensive suite of engineering, operation, and advisory solutions.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+                <h3>Rooftop Solar EPC</h3>
+                <p>Complete Engineering, Procurement &amp; Construction services tailored for commercial, industrial, and large residential buildings.</p>
+            </div>
+            <div class="service-card reveal delay-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
+                <h3>Ground Mounted Solar</h3>
+                <p>Custom engineering design and structured piling installations for massive open ground-mounted solar power plants.</p>
+            </div>
+            <div class="service-card reveal delay-200" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg></div>
+                <h3>Solar Parks</h3>
+                <p>Large-scale solar park infrastructure planning, development, and grid linkage connection support across states.</p>
+            </div>
+            <div class="service-card reveal delay-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="15" rx="2" ry="2"></rect><line x1="6" y1="7" x2="6" y2="3"></line><line x1="14" y1="7" x2="14" y2="3"></line><path d="M22 11V7a2 2 0 0 0-2-2h-2"></path></svg></div>
+                <h3>Battery Energy Storage (BESS)</h3>
+                <p>Advanced battery backup systems integrated with solar grids to guarantee uninterrupted energy flow day and night.</p>
+            </div>
+            <div class="service-card reveal" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 22 22 22"></polygon><circle cx="12" cy="13" r="3"></circle></svg></div>
+                <h3>Design &amp; Engineering</h3>
+                <p>High-precision schematic drafts, load structural analysis, and shading analysis to maximize system efficiency.</p>
+            </div>
+            <div class="service-card reveal delay-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                <h3>Operation &amp; Maintenance</h3>
+                <p>Preventative cleaning, diagnostic checks, inverter health checks, and quick technical troubleshooting support.</p>
+            </div>
+            <div class="service-card reveal delay-200" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                <h3>PPA &amp; Open Access Consultancy</h3>
+                <p>Complete regulatory advisory, wheeling arrangements, energy tariff negotiation, and contract finalization.</p>
+            </div>
+            <div class="service-card reveal delay-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
+                <h3>I&amp;C and BOS Solutions</h3>
+                <p>Installation &amp; Commissioning together with high-quality Balance of System (BOS) components integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PPA & INVESTORS ==================== -->
+    <!-- Note: ppa-section and investors-section share the same nav entry -->
+    <section id="ppa-section" id2="investors-section" class="section section-light">
+        <div class="dual-focus-grid">
+            <div class="focus-card focus-ppa reveal">
+                <div class="focus-card-top">
+                    <h3>Solar PPA &amp; <br>Open Access Solutions</h3>
+                    <p>Reduce your electricity cost with long-term solar power through Power Purchase Agreement (PPA) structure. Zero Capex, immediate savings.</p>
+                    <div class="focus-features-grid">
+                        <div class="focus-feature-item"><span class="focus-feature-icon">⭐</span><span class="focus-feature-lbl">Zero/Low Capex</span></div>
+                        <div class="focus-feature-item"><span class="focus-feature-icon">👛</span><span class="focus-feature-lbl">Predictable Cost</span></div>
+                        <div class="focus-feature-item"><span class="focus-feature-icon">💰</span><span class="focus-feature-lbl">Long Term Savings</span></div>
+                        <div class="focus-feature-item"><span class="focus-feature-icon">🌍</span><span class="focus-feature-lbl">Sustainable Future</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-accent" onclick="openModal('Enquire for PPA')">
+                    Enquire for PPA
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                </button>
+            </div>
+            <div id="investors-section" class="focus-card focus-investors reveal delay-200">
+                <div class="focus-card-top">
+                    <h3>For Investors</h3>
+                    <p>Invest in high-performing solar projects with long-term PPA offtake and secure, inflation-adjusted, green returns.</p>
+                    <ul class="focus-list">
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Utility Scale Projects</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Long Term PPA Revenue</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Transparent &amp; Compliant Partnerships</span></li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-white" onclick="openModal('Discuss Investment')">
+                    Discuss Investment
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED PROJECTS ==================== -->
+    <section id="projects" class="section section-dark">
+        <div class="section-title-wrap reveal">
+            <span class="section-subtitle" data-aos="fade-right">Our Work</span>
+            <h2 class="section-title" data-aos="fade-up">Our Featured Projects</h2>
+            <p style="color:var(--text-muted);max-width:650px;margin:0 auto;font-size:1.1rem;">From energy savings to environmental impact, our work speaks through results. Delivering engineering excellence across India.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal" data-aos="zoom-in" data-aos-delay="0">
+                <span class="project-tag">Solar Park</span>
+                <div class="project-image-box"><img src="assets/images/project_rajasthan.png" alt="5 MW Solar Park Rajasthan"></div>
+                <div class="project-details"><h4>5 MW Solar Park</h4><p>Rajasthan, India</p></div>
+            </div>
+            <div class="project-card reveal delay-100" data-aos="zoom-in" data-aos-delay="100">
+                <span class="project-tag tag-orange">Rooftop</span>
+                <div class="project-image-box"><img src="assets/images/project_maharashtra.png" alt="2 MW Industrial Rooftop Maharashtra"></div>
+                <div class="project-details"><h4>2 MW Industrial Rooftop</h4><p>Maharashtra, India</p></div>
+            </div>
+            <div class="project-card reveal delay-200" data-aos="zoom-in" data-aos-delay="200">
+                <span class="project-tag tag-orange">Rooftop</span>
+                <div class="project-image-box"><img src="assets/images/project_punjab.png" alt="750 kW Commercial Plant Punjab"></div>
+                <div class="project-details"><h4>750 kW Commercial Plant</h4><p>Punjab, India</p></div>
+            </div>
+            <div class="project-card reveal delay-300" data-aos="zoom-in" data-aos-delay="300">
+                <span class="project-tag tag-orange">Rooftop</span>
+                <div class="project-image-box"><img src="assets/images/project_haryana.png" alt="650 kW Rooftop Plant Haryana"></div>
+                <div class="project-details"><h4>650 kW Rooftop Plant</h4><p>Haryana, India</p></div>
+            </div>
+        </div>
+        <div class="projects-actions reveal">
+            <button class="btn btn-primary" onclick="openModal('View All Projects')">
+                View All Projects
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section id="why-choose" class="section section-light">
+        <div class="why-grid">
+            <div class="why-left reveal">
+                <span class="section-subtitle" data-aos="fade-right">Core Strengths</span>
+                <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
+                <p class="why-intro">We bring years of engineering proficiency, regulatory knowledge, and top-tier components to design high-yield solar installations.</p>
+                <div class="why-list">
+                    <div class="why-item" data-aos="fade-right" data-aos-delay="0">
+                        <div class="why-icon-wrap">🛠️</div>
+                        <div><h4>Turnkey EPC Solutions</h4><p>We handle everything from regulatory site survey and planning to technical execution and liaisoning.</p></div>
+                    </div>
+                    <div class="why-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="why-icon-wrap">💎</div>
+                        <div><h4>Tier-1 Quality Components</h4><p>We only use premium modules and grid tie-inverters with extensive warranties and performance tracking.</p></div>
+                    </div>
+                    <div class="why-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="why-icon-wrap">🧑‍🔬</div>
+                        <div><h4>Experienced Engineering Team</h4><p>Our solar experts design custom arrays that ensure maximum solar irradiation captures.</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="why-right-mockup reveal delay-200">
+                <div class="why-mockup-tag">Guaranteed Output</div>
+                <h3>Engineered to Outperform</h3>
+                <p>Leveraging advanced technology and premium-quality components, we help our clients achieve energy independence while contributing to a greener future.</p>
+                <div class="why-mockup-stats">
+                    <div class="why-mstat"><h5>350+</h5><p>Rooftop Sites Completed</p></div>
+                    <div class="why-mstat"><h5>155.5k</h5><p>Tonnes CO2 Abated/Year</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROCESS, TESTIMONIALS & PARTNERS ==================== -->
+    <section id="process-clients" class="section section-light" style="border-top:1px solid var(--border-card);padding-top:5rem;padding-bottom:5rem;">
+        <div class="bottom-info-grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+
+            <!-- Column 1: Trusted Partners -->
+            <div class="bottom-info-col reveal">
+                <h3 data-aos="fade-up">Our Trusted Partners</h3>
+                <div class="partners-grid-new">
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="0">
+                        <img src="assets/images/partners/adani.svg" alt="Adani Solar">
+                    </div>
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="80">
+                        <img src="assets/images/partners/waaree.svg" alt="WAAREE">
+                    </div>
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="160">
+                        <img src="assets/images/partners/longi.svg" alt="LONGi">
+                    </div>
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="240">
+                        <img src="assets/images/partners/trina.svg" alt="Trina Solar">
+                    </div>
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="320">
+                        <img src="assets/images/partners/sungrow.svg" alt="Sungrow">
+                    </div>
+                    <div class="partner-card" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="assets/images/partners/solis.svg" alt="Solis">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Our Process Flow -->
+            <div class="bottom-info-col reveal delay-100">
+                <h3 data-aos="fade-up">Our Process Flow</h3>
+                <div class="process-flow">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="0">
+                        <div class="step-icon-wrap">
+                            <span class="step-num">1</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <div class="step-label">Site Survey</div>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-icon-wrap">
+                            <span class="step-num">2</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        </div>
+                        <div class="step-label">Design &amp;<br>Proposal</div>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-icon-wrap">
+                            <span class="step-num">3</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 3.6V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        </div>
+                        <div class="step-label">Engineering</div>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-icon-wrap">
+                            <span class="step-num">4</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <div class="step-label">Installation</div>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-icon-wrap">
+                            <span class="step-num">5</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <div class="step-label">Commission &amp;<br>O&amp;M</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div style="margin-top:4rem;" data-aos="fade-up">
+            <div class="section-title-wrap" style="margin-bottom:2rem;">
+                <span class="section-subtitle">Client Voices</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-wrapper">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide"><div class="testimonial-card-light"><p class="testimonial-quote">"Solista Energies delivered our rooftop project with great professionalism and on time. Their support and service quality is excellent."</p><div class="testimonial-author">- Facility Head</div><div class="testimonial-title">Leading Manufacturing Company</div></div></div>
+                    <div class="testimonial-slide"><div class="testimonial-card-light"><p class="testimonial-quote">"Transitioning our industrial units to solar was seamless. We are already saving nearly 35% on grid tariffs. Excellent operations team!"</p><div class="testimonial-author">- Director of Operations</div><div class="testimonial-title">Indo Textiles Corp</div></div></div>
+                    <div class="testimonial-slide"><div class="testimonial-card-light"><p class="testimonial-quote">"Highly reliable team for long-term PPA agreements. Their transparency and design precision is remarkable."</p><div class="testimonial-author">- Senior Asset Manager</div><div class="testimonial-title">SunVenture Green Funds</div></div></div>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator-dot active" data-slide="0"></span>
+                    <span class="indicator-dot" data-slide="1"></span>
+                    <span class="indicator-dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CALL TO ACTION BANNER ==================== -->
+    <section class="cta-wrapper reveal">
+        <div class="cta-banner">
+            <div class="cta-text">
+                <h2>Ready to Reduce Your Electricity Cost?</h2>
+                <p>Let's build a smarter, cleaner, and greener tomorrow. Contact our experts today.</p>
+            </div>
+            <div class="cta-action">
+                <button class="btn btn-accent" onclick="openModal('Request a Quote')">
+                    Request a Quote
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <!-- Col 1: Brand -->
+            <div class="footer-col footer-about" data-aos="fade-up" data-aos-delay="0">
+                <div class="brand-logo" style="margin-bottom:1.5rem;align-items:center;">
+                    <img src="assets/images/footer_logo.png" alt="Solista Energies" class="brand-logo-img" style="height:100px;width:auto;object-fit:contain;">
+                </div>
+                <p>Solista Energies Private Limited is a fast-growing solar EPC company committed to accelerating India's transition towards clean and sustainable energy.</p>
+                <div class="footer-social-row">
+                    <a href="https://www.instagram.com/solistaenergies/" target="_blank" class="footer-social-icon" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#projects">Featured Projects</a></li>
+                    <li><a href="#ppa-section">Solar PPA</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="about-image hidden delay-200">
-                <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=800&auto=format&fit=crop" alt="Engineers installing solar panels on a sunny day">
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <h2 class="section-title hidden">Our Premium Services</h2>
-        <div class="services-grid">
-            
-            <div class="service-card hidden delay-100">
-                <div class="service-icon">🏡</div>
-                <h3>Residential Solar</h3>
-                <p>Custom rooftop solar arrays designed to blend beautifully with your home's architecture while offsetting up to 100% of your energy usage.</p>
+            <!-- Col 3: Focus Areas -->
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                    <li><a href="#ppa-section">Open Access Solutions</a></li>
+                    <li><a href="#investors-section">Investors Desk</a></li>
+                    <li><a href="#why-choose">Core Technology</a></li>
+                </ul>
             </div>
 
-            <div class="service-card hidden delay-200">
-                <div class="service-icon">🏢</div>
-                <h3>Commercial Solutions</h3>
-                <p>Scale your business sustainably. We design large-scale solar infrastructures that lower operational costs and elevate your corporate social responsibility.</p>
-            </div>
-
-            <div class="service-card hidden delay-300">
-                <div class="service-icon">🔋</div>
-                <h3>Battery Storage</h3>
-                <p>Keep the lights on even when the grid goes down. We integrate advanced battery storage systems so you can use solar power day and night.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Impact Stats Section -->
-    <div class="stats-grid">
-        <div class="stat-item hidden">
-            <h3 class="counter text-gradient" data-target="1500">0</h3>
-            <p>Installations</p>
-        </div>
-        <div class="stat-item hidden delay-100">
-            <h3 class="counter text-gradient" data-target="50">0</h3>
-            <p>Megawatts Generated</p>
-        </div>
-        <div class="stat-item hidden delay-200">
-            <h3 class="counter text-gradient" data-target="15">0</h3>
-            <p>Years Experience</p>
-        </div>
-        <div class="stat-item hidden delay-300">
-            <h3 class="counter text-gradient" data-target="100">0</h3>
-            <p>% Satisfaction</p>
-        </div>
-    </div>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <h2 class="section-title hidden">What Our Clients Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card hidden delay-100">
-                <p>"Switching to Solista was the best decision for our business. The transition was seamless, and we're already seeing a 60% reduction in energy costs. The smart monitoring app is fantastic."</p>
-                <div class="client-name">Sarah Jenkins</div>
-            </div>
-            <div class="testimonial-card hidden delay-200">
-                <p>"Their team of engineers is top-notch. Professional, clean installation, and the battery backup works perfectly during outages. I barely even notice when the grid goes down anymore."</p>
-                <div class="client-name">Michael Rodriguez</div>
-            </div>
-            <div class="testimonial-card hidden delay-300">
-                <p>"I love tracking my energy usage and knowing I'm making a difference for the environment. Highly recommend Solista for anyone looking to go green responsibly and save money."</p>
-                <div class="client-name">Emma Thompson</div>
+            <!-- Col 4: Contact -->
+            <div class="footer-col" id="contact" data-aos="fade-up" data-aos-delay="300">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>+91 89055 86711<br>+91 96495 90417</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:solistaenergies@gmail.com">solistaenergies@gmail.com</a>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Jaipur, Rajasthan, India</span>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Footer / Contact Section -->
-    <footer id="contact">
-        <div class="footer-content hidden">
-            <h2>Solista <span class="text-gradient">Energies</span></h2>
-            <p>Ready to make the switch? Contact our solar experts today.</p>
-            <p style="margin-top: 1rem; font-size: 1.2rem;">
-                📞 +1 (800) 555-SOLAR <br>
-                ✉️ hello@solistaenergies.com
-            </p>
-        </div>
-        <div class="footer-bottom hidden delay-100">
-            <p>&copy; 2024 Solista Energies. All rights reserved. Powering the future responsibly.</p>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Solista Energies Private Limited. All Rights Reserved. Powering a sustainable tomorrow.</p>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms &amp; Conditions</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Super Cool Animation Logic -->
+    <!-- ==================== FLOATING WHATSAPP ==================== -->
+    <div class="whatsapp-widget">
+        <button class="whatsapp-btn" onclick="openWhatsApp()" aria-label="Chat on WhatsApp">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </button>
+    </div>
+
+    <!-- ==================== LEAD MODAL ==================== -->
+    <div class="modal-overlay" id="lead-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 id="modal-title">Get a Free Consultation</h3>
+            <p id="modal-desc">Fill in details below and our solar experts will reach out to you within 24 hours.</p>
+            <form id="lead-form" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" id="form-source" name="source" value="consultation">
+                <div class="form-group">
+                    <label for="form-name">Full Name *</label>
+                    <input type="text" id="form-name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-phone">Phone Number *</label>
+                        <input type="tel" id="form-phone" class="form-control" placeholder="10-digit mobile" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email Address *</label>
+                        <input type="email" id="form-email" class="form-control" placeholder="name@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group" id="bill-group">
+                    <label for="form-bill">Average Monthly Electricity Bill (INR)</label>
+                    <input type="number" id="form-bill" class="form-control" placeholder="Optional average cost">
+                </div>
+                <div class="form-group">
+                    <label for="form-message">Special Message / Requirements</label>
+                    <textarea id="form-message" class="form-control" style="resize:none;height:90px;" placeholder="Describe your site details..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <script>
-        // Header Glassmorphism Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
+
+        // ---- GSAP Hero Animations (after intro) ----
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                gsap.to('.gsap-hero-title', { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', delay: 0.3 });
+                gsap.to('.gsap-hero-sub',   { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.6, stagger: 0.2 });
+                gsap.to('.gsap-hero-cta',   { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)', delay: 1.1 });
+            }
         });
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+        // ---- AOS Init ----
+        AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60 });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    
-                    // Number Counter Animation
-                    const counters = entry.target.querySelectorAll('.counter');
-                    if (counters.length > 0) {
-                        counters.forEach(counter => {
-                            if (!counter.classList.contains('counted')) {
-                                counter.classList.add('counted');
-                                const target = +counter.getAttribute('data-target');
-                                let count = 0;
-                                const updateCounter = () => {
-                                    const increment = target / 40;
-                                    if (count < target) {
-                                        count += increment;
-                                        counter.innerText = Math.ceil(count);
-                                        setTimeout(updateCounter, 30);
-                                    } else {
-                                        counter.innerText = target + (target === 100 ? '%' : '+');
-                                    }
-                                };
-                                updateCounter();
-                            }
-                        });
-                    }
-                    // Stop observing once shown to prevent re-animation on scroll up
-                    observer.unobserve(entry.target);
+        // ---- Hamburger Menu ----
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenuBar    = document.getElementById('nav-menu-bar');
+        menuToggleBtn.addEventListener('click', () => {
+            navMenuBar.classList.toggle('active');
+            menuToggleBtn.classList.toggle('active');
+            const spans = menuToggleBtn.querySelectorAll('span');
+            if (menuToggleBtn.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px,6px)';
+                spans[1].style.opacity   = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+            } else {
+                spans[0].style.transform = spans[2].style.transform = 'none';
+                spans[1].style.opacity   = '1';
+            }
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenuBar.classList.remove('active');
+                menuToggleBtn.classList.remove('active');
+                menuToggleBtn.querySelectorAll('span').forEach(s => { s.style.transform = 'none'; s.style.opacity = '1'; });
+            });
+        });
+
+        // ---- Header scroll shrink ----
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+
+        // ---- Active Nav Link on scroll ----
+        // ppa-section and investors-section both map to the #ppa-section nav link
+        const sectionNavMap = {
+            'ppa-section': '#ppa-section',
+            'investors-section': '#ppa-section',
+        };
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section[id]').forEach(s => {
+                if (window.scrollY >= s.offsetTop - 220) current = s.id;
+            });
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.classList.remove('active');
+                const mappedHref = sectionNavMap[current] || '#' + current;
+                if (l.getAttribute('href') === mappedHref || l.getAttribute('href').includes(current)) {
+                    l.classList.add('active');
                 }
             });
-        }, observerOptions);
+        });
 
-        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
-
-        // Mouse Glow Effect for Service Cards
+        // ---- Service card glow ----
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - r.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - r.top}px`);
             });
         });
+
+        // ---- Testimonial Carousel ----
+        const track = document.getElementById('testimonial-track');
+        const dots  = document.querySelectorAll('.indicator-dot');
+        let currentSlide = 0, autoplayInterval;
+        function updateCarousel(i) {
+            track.style.transform = `translateX(-${i * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[i].classList.add('active');
+            currentSlide = i;
+        }
+        dots.forEach(d => d.addEventListener('click', () => { updateCarousel(+d.dataset.slide); clearInterval(autoplayInterval); startAutoplay(); }));
+        function startAutoplay() {
+            autoplayInterval = setInterval(() => updateCarousel((currentSlide + 1) % dots.length), 6000);
+        }
+        startAutoplay();
+
+        // ---- Reveal Observer ----
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('active');
+                    if (e.target.classList.contains('stats-bar')) startCounterAnimations();
+                    revealObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) revealObserver.observe(statsBar);
+
+        // ---- Counters ----
+        let countersStarted = false;
+        function startCounterAnimations() {
+            if (countersStarted) return;
+            countersStarted = true;
+            document.querySelectorAll('.count-animate').forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                let current  = 0;
+                const timer  = setInterval(() => {
+                    current += Math.ceil(target / 80);
+                    if (current >= target) { counter.innerText = target + (target === 99 ? '%' : '+'); clearInterval(timer); }
+                    else counter.innerText = current;
+                }, 20);
+            });
+        }
+
+        // ---- WhatsApp ----
+        function openWhatsApp() {
+            window.open('https://wa.me/918905586711?text=Hi%20Solista%20Energies,%20I%20am%20interested%20in%20your%20solar%20solutions.', '_blank');
+        }
+
+        // ---- Lead Modal ----
+        const modal      = document.getElementById('lead-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc  = document.getElementById('modal-desc');
+        const formSource = document.getElementById('form-source');
+        const billGroup  = document.getElementById('bill-group');
+
+        function openModal(actionType) {
+            modal.classList.add('active');
+            formSource.value = actionType;
+            if (actionType === 'Discuss Investment') {
+                modalTitle.innerText = 'Discuss Investment Options';
+                modalDesc.innerText  = 'Partner with Solista Energies for high-performing green energy portfolios.';
+                billGroup.style.display = 'none';
+            } else if (actionType === 'Enquire for PPA') {
+                modalTitle.innerText = 'Enquire for Solar PPA';
+                modalDesc.innerText  = 'Switch to solar with zero investment. Enter details to check feasibility.';
+                billGroup.style.display = 'block';
+            } else if (actionType === 'Get a Quote' || actionType === 'Request a Quote') {
+                modalTitle.innerText = 'Get a Project Estimate';
+                modalDesc.innerText  = 'Share your electricity usage stats and receive a detailed solar cost estimation.';
+                billGroup.style.display = 'block';
+            } else {
+                modalTitle.innerText = 'Get a Free Consultation';
+                modalDesc.innerText  = 'Fill in details below and our solar experts will reach out to you within 24 hours.';
+                billGroup.style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.getElementById('lead-form').reset();
+        }
+
+        window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+        // ---- Form Submit → redirect to email ----
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name    = document.getElementById('form-name').value.trim();
+            const phone   = document.getElementById('form-phone').value.trim();
+            const email   = document.getElementById('form-email').value.trim();
+            const bill    = document.getElementById('form-bill').value.trim();
+            const message = document.getElementById('form-message').value.trim();
+            const source  = formSource.value;
+
+            const subject = encodeURIComponent(`[Solista Energies] ${source} – ${name}`);
+            const body    = encodeURIComponent(
+                `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMonthly Bill: ${bill || 'N/A'}\nEnquiry Type: ${source}\n\nMessage:\n${message || 'No additional message.'}`
+            );
+
+            window.location.href = `mailto:solistaenergies@gmail.com?subject=${subject}&body=${body}`;
+
+            closeModal();
+        }
     </script>
+
+    <!-- ==================== INTRO ANIMATION (loads last) ==================== -->
+
 </body>
 </html>

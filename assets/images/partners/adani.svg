@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" width="220" height="100">
+  <rect width="220" height="100" fill="white" rx="0"/>
+  <!-- adani text in blue/teal gradient -->
+  <text x="110" y="52" font-family="Arial Black, Arial, sans-serif" font-size="36" font-weight="900" text-anchor="middle" letter-spacing="-1">
+    <tspan fill="#1a73c5">a</tspan><tspan fill="#2196a6">d</tspan><tspan fill="#1a9cc4">a</tspan><tspan fill="#1b73c4">n</tspan><tspan fill="#1b5fba">i</tspan>
+  </text>
+  <!-- underline bar -->
+  <rect x="42" y="58" width="136" height="3" rx="2" fill="#1a73c5"/>
+  <!-- Solar text below -->
+  <text x="110" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#444444" letter-spacing="2">Solar</text>
+</svg>

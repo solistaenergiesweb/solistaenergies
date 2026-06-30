@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" width="220" height="100">
+  <rect width="220" height="100" fill="white" rx="0"/>
+  <!-- Trina in blue, solar in dark/grey, bold -->
+  <text x="50" y="62" font-family="Arial Black, Arial, sans-serif" font-size="36" font-weight="900" text-anchor="start" fill="#1b4fa1">Trina</text>
+  <!-- The small green accent dot on the 'i' of Trina is represented with a color square -->
+  <rect x="82" y="22" width="8" height="8" rx="4" fill="#2db24a"/>
+  <text x="128" y="62" font-family="Arial Black, Arial, sans-serif" font-size="36" font-weight="900" text-anchor="start" fill="#404040">solar</text>
+</svg>

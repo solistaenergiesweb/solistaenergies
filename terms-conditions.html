@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Solista Energies</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="intro-animation.css">
+    <style>
+        </style>
+    <style>
+        .legal-content {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-card);
+        }
+        .legal-content h1 { margin-bottom: 2rem; color: var(--brand-blue); }
+        .legal-content h2 { margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 1.5rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-muted); line-height: 1.8; }
+        .legal-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text-muted); }
+        .legal-content li { margin-bottom: 0.5rem; }
+    </style>
+    </head>
+<body>
+        <!-- ==================== HEADER (NAVBAR) ==================== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <div class="legal-content">
+        <h1>Terms and Conditions</h1>
+        <p><strong>Effective Date:</strong> January 1, 2026</p>
+        
+        <p>Welcome to Solista Energies. These terms and conditions outline the rules and regulations for the use of Solista Energies Private Limited's Website.</p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Solista Energies' website if you do not accept all of the terms and conditions stated on this page.</p>
+        
+        <h2>2. Intellectual Property Rights</h2>
+        <p>Unless otherwise stated, Solista Energies Private Limited and/or its licensors own the intellectual property rights for all material on Solista Energies. All intellectual property rights are reserved. You may view and/or print pages from the website for your own personal use subject to restrictions set in these terms and conditions.</p>
+        
+        <h2>3. Restrictions</h2>
+        <p>You are specifically restricted from all of the following:</p>
+        <ul>
+            <li>Publishing any website material in any other media without prior consent.</li>
+            <li>Selling, sublicensing, and/or otherwise commercializing any website material.</li>
+            <li>Using this website in any way that is or may be damaging to this website or to the brand.</li>
+            <li>Using this website contrary to applicable laws and regulations, or in any way may cause harm to the website, or to any person or business entity.</li>
+        </ul>
+        
+        <h2>4. Limitation of Liability</h2>
+        <p>In no event shall Solista Energies Private Limited, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website.</p>
+        
+        <h2>5. Contact Information</h2>
+        <p>If you have any queries regarding any of our terms, please contact us at <strong>solistaenergies@gmail.com</strong>.</p>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => document.body.classList.add('loaded'));
+        AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60 });
+        // Theme
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+        // Header scroll shrink
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 30);
+        });
+        // Hamburger
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenuBar    = document.getElementById('nav-menu-bar');
+        menuToggleBtn.addEventListener('click', () => {
+            navMenuBar.classList.toggle('active');
+            menuToggleBtn.classList.toggle('active');
+            const spans = menuToggleBtn.querySelectorAll('span');
+            if (menuToggleBtn.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px,6px)';
+                spans[1].style.opacity   = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+            } else {
+                spans[0].style.transform = spans[2].style.transform = 'none';
+                spans[1].style.opacity   = '1';
+            }
+        });
+    </script>
+    <script src="intro-animation.js"></script>
+</body>
+</html>

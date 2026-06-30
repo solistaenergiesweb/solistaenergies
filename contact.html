@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Solista Energies</title>
+    <!-- Google Fonts -->
+    <!-- Main Style Sheet -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="intro-animation.css">
+    <style>
+        </style>
+    <style>
+        .contact-hero {
+            padding: 10rem 2.5rem 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-section-alt) 0%, var(--bg-main) 100%);
+        }
+        .contact-container {
+            max-width: 900px;
+            margin: -4rem auto 6rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            padding: 4rem;
+            border: 1px solid var(--border-card);
+            position: relative;
+            z-index: 10;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border-input);
+            border-radius: 8px;
+            background: var(--bg-main);
+            color: var(--text-main);
+            font-family: inherit;
+            transition: var(--transition-smooth);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 4px var(--shadow-glow);
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .contact-info-card {
+            padding: 2rem;
+            background: var(--bg-section-alt);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .contact-info-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+    </head>
+<body>
+
+    <!-- HEADER -->
+        <!-- ==================== HEADER (NAVBAR) ==================== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+        <span class="section-subtitle" data-aos="fade-right">Get In Touch</span>
+        <h1 class="section-title">Contact Our Team</h1>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Whether you are looking for a complete EPC solution, open access guidance, or investment opportunities, our experts are ready to assist you.</p>
+    </section>
+
+    <!-- FORM & INFO -->
+    <section class="section" style="padding-top: 0;">
+        <div class="contact-info-grid">
+            <div class="contact-info-card">
+                <div class="contact-info-icon">📍</div>
+                <h3>Head Office</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Jaipur, Rajasthan, India<br>Operating Nationwide</p>
+            </div>
+            <div class="contact-info-card">
+                <div class="contact-info-icon">📞</div>
+                <h3>Call Us</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">+91 89055 86711<br>+91 96495 90417</p>
+            </div>
+            <div class="contact-info-card">
+                <div class="contact-info-icon">✉️</div>
+                <h3>Email Us</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">solistaenergies@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <h2 style="margin-bottom: 2rem; font-size: 2rem;">Send us a Message</h2>
+            <form id="contact-form" onsubmit="submitContactForm(event)">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="interest">Interested In</label>
+                    <select id="interest" class="form-control">
+                        <option value="rooftop">Rooftop Solar</option>
+                        <option value="ground">Ground Mount / Solar Parks</option>
+                        <option value="ppa">PPA / Open Access</option>
+                        <option value="other">Other Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" class="form-control" placeholder="Tell us about your energy requirements..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">
+                    Submit Inquiry
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col footer-about">
+                <div class="brand-logo" style="margin-bottom: 1.5rem; align-items: center;">
+                    <img src="assets/images/footer_logo.png" alt="Solista Energies" class="brand-logo-img" style="height: 100px; width: auto; object-fit: contain;">
+                </div>
+                <p>Solista Energies Private Limited is a fast-growing solar EPC company committed to accelerating India's transition towards clean and sustainable energy.</p>
+                <div class="footer-social-row">
+                    <a href="https://www.instagram.com/solistaenergies/" target="_blank" class="footer-social-icon" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Solista Energies Private Limited. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => document.body.classList.add('loaded'));
+        AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60 });
+        // Theme
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+        // Header scroll shrink
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 30);
+        });
+        // Hamburger
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenuBar    = document.getElementById('nav-menu-bar');
+        menuToggleBtn.addEventListener('click', () => {
+            navMenuBar.classList.toggle('active');
+            menuToggleBtn.classList.toggle('active');
+            const spans = menuToggleBtn.querySelectorAll('span');
+            if (menuToggleBtn.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px,6px)';
+                spans[1].style.opacity   = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+            } else {
+                spans[0].style.transform = spans[2].style.transform = 'none';
+                spans[1].style.opacity   = '1';
+            }
+        });
+    </script>
+    <script src="intro-animation.js"></script>
+</body>
+</html>

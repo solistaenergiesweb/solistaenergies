@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Solista Energies</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="intro-animation.css">
+    <style>
+        </style>
+    <style>
+        .legal-content {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-card);
+        }
+        .legal-content h1 { margin-bottom: 2rem; color: var(--brand-blue); }
+        .legal-content h2 { margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-main); font-size: 1.5rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-muted); line-height: 1.8; }
+        .legal-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text-muted); }
+        .legal-content li { margin-bottom: 0.5rem; }
+    </style>
+    </head>
+<body>
+        <!-- ==================== HEADER (NAVBAR) ==================== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <div class="legal-content">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> January 1, 2026</p>
+        
+        <p>Solista Energies Private Limited ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights.</p>
+        
+        <h2>1. Information We Collect</h2>
+        <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+        <ul>
+            <li><strong>Identity Data:</strong> includes first name, last name, and title.</li>
+            <li><strong>Contact Data:</strong> includes email address and telephone numbers.</li>
+            <li><strong>Technical Data:</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform.</li>
+            <li><strong>Usage Data:</strong> includes information about how you use our website and services.</li>
+        </ul>
+        
+        <h2>2. How We Use Your Personal Data</h2>
+        <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+        <ul>
+            <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., providing a solar quote).</li>
+            <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+            <li>Where we need to comply with a legal or regulatory obligation.</li>
+        </ul>
+        
+        <h2>3. Data Security</h2>
+        <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.</p>
+        
+        <h2>4. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, including any requests to exercise your legal rights, please contact us at <strong>solistaenergies@gmail.com</strong>.</p>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => document.body.classList.add('loaded'));
+        AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60 });
+        // Theme
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+        // Header scroll shrink
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 30);
+        });
+        // Hamburger
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenuBar    = document.getElementById('nav-menu-bar');
+        menuToggleBtn.addEventListener('click', () => {
+            navMenuBar.classList.toggle('active');
+            menuToggleBtn.classList.toggle('active');
+            const spans = menuToggleBtn.querySelectorAll('span');
+            if (menuToggleBtn.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px,6px)';
+                spans[1].style.opacity   = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+            } else {
+                spans[0].style.transform = spans[2].style.transform = 'none';
+                spans[1].style.opacity   = '1';
+            }
+        });
+    </script>
+    <script src="intro-animation.js"></script>
+</body>
+</html>

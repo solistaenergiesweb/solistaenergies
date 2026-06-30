@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" width="220" height="100">
+  <rect width="220" height="100" fill="white" rx="0"/>
+  <!-- WAAREE in bold green italic with underline -->
+  <text x="110" y="50" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" font-style="italic" text-anchor="middle" fill="#1a8c3e" letter-spacing="2">WAAREE</text>
+  <!-- Small TM -->
+  <text x="196" y="36" font-family="Arial, sans-serif" font-size="10" fill="#1a8c3e">™</text>
+  <!-- Tagline -->
+  <text x="110" y="70" font-family="Arial, sans-serif" font-size="13" font-style="italic" text-anchor="middle" fill="#c41e3a" letter-spacing="1">One with the Sun</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" width="220" height="100">
+  <rect width="220" height="100" fill="white" rx="0"/>
+  <!-- SUNGROW in orange bold all-caps -->
+  <text x="110" y="52" font-family="Arial Black, Arial, sans-serif" font-size="30" font-weight="900" text-anchor="middle" fill="#e87722" letter-spacing="3">SUNGROW</text>
+  <!-- Tagline -->
+  <text x="110" y="70" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#888888" letter-spacing="1">Clean power for all</text>
+</svg>
