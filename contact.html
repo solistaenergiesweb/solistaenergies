@@ -223,6 +223,30 @@
                 spans[1].style.opacity   = '1';
             }
         });
+
+        // Contact Form Submit Handler
+        function submitContactForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            // Get the selected interest text
+            const interestSelect = document.getElementById('interest');
+            const interest = interestSelect.options[interestSelect.selectedIndex].text;
+            
+            const message = document.getElementById('message').value.trim();
+
+            const subject = encodeURIComponent(`[Solista Energies] Contact Inquiry: ${interest} - ${name}`);
+            const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nInterested In: ${interest}\n\nMessage:\n${message}`
+            );
+
+            window.location.href = `mailto:solistaenergies@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Optional: reset form after sending
+            document.getElementById('contact-form').reset();
+        }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="intro-animation.js"></script>
